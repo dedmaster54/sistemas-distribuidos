@@ -1,7 +1,7 @@
   
 #guia de uso
 
-## 1 ejecutar el *brojker*
+## 1 ejecutar el *broker*
 abre una terminal (*cmd*)
 ~~~ bash
 python broker.py
