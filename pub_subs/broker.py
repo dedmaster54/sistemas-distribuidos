@@ -27,7 +27,7 @@ def handle_client(conn, addr):
         print(f"[!] Error al manejar el cliente {addr}: {e}")
     finally:
         conn.close()
-def start_broker(host='0.0.0.0', port=1400):
+def start_broker(host='localhosto', port=1400):
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((host, port))
     server_socket.listen(5)

@@ -1,6 +1,6 @@
 import socket
 def main():
-    broker_host=' 0.0.0.0'
+    broker_host='localhost'
     broker_port=14000
     print("Publicador iniciado. Usa Formato : <topic> <mensaje>")
     while True:
