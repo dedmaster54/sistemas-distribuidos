@@ -3,7 +3,6 @@ import threading
 suscribers = {} #topic --> lista de sockets
 lock = threading.Lock()
 def handle_client(conn, addr):
-
     try:
         msg_type = conn.recv(1024).decode().strip()
         if msg_type.startswith("PUB:"):
@@ -11,7 +10,6 @@ def handle_client(conn, addr):
             if len(parts) != 2:
                 conn.close()
                 return
-
             topic, message = parts
             print(f"[>]Publicacion en '{topic}':{message}")
             with lock:
@@ -21,13 +19,12 @@ def handle_client(conn, addr):
                     except:
                         continue
         else:
-            
             conn.sendall(b"Comando no reconocido")          
     except Exception as e:
         print(f"[!] Error al manejar el cliente {addr}: {e}")
     finally:
         conn.close()
-def start_broker(host='localhosto', port=1400):
+def start_broker(host='localhost', port=1400):
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((host, port))
     server_socket.listen(5)
