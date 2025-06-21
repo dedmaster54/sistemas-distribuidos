@@ -7,11 +7,11 @@ def listen_to_broker(sock):
             if not msg:
                 break
             print(msg.decode())
-    except :
-        print(f"CONEXION CERRADA POR EL BROKER : ")
+    except:
+        print("[!]CONEXION CERRADA POR EL BROKER : ")
 def main():
     broker_host = 'localhost'
-    broker_port = 14000
+    broker_port = 1400
     topic =input("Tema a suscribirse: ").strip()
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((broker_host, broker_port))
